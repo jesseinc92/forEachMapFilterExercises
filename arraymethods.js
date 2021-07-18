@@ -82,3 +82,44 @@ function vowelCount(string) {
     }
     return vowelObject;v
 }
+
+
+// map functions
+// double values with map
+function doubleValuesWithMap(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray.push(array[i] * 2);
+    }
+    return newArray;
+}
+
+// val times index
+function valTimesIndex(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray.push(array[i] * i);
+    }
+    return newArray;
+}
+
+// extract key
+function extractKey(array, key) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        const value = array[i][key];
+        newArray.push(value);
+    }
+    return newArray;
+}
+
+// extract full name
+function extractFullName(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        const first = array[i]['first'];
+        const last = array[i]['last'];
+        newArray.push(`${first} ${last}`);
+    }
+    return newArray;
+}
