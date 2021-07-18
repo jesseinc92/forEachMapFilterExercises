@@ -123,3 +123,61 @@ function extractFullName(array) {
     }
     return newArray;
 }
+
+
+// filter functions
+// filter by value
+function filterByValue(array, key) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][key]) {
+            newArray.push(array[i]);
+        }
+    }
+    return newArray;
+}
+
+// find
+function find(array, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == value) {
+            return array[i];
+        }
+    }
+}
+
+// find in object
+function findInObj(array, key, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][key] == value) {
+            return array[i];
+        }
+    }
+}
+
+// remove vowels
+function removeVowels(string) {
+    const lowerString = string.toLowerCase();
+    let newString = '';
+    for (let i = 0; i < lowerString.length; i++) {
+        if (lowerString[i] !== 'a' && lowerString[i] !== 'e' && lowerString[i] !== 'i' && lowerString[i] !== 'o' && lowerString[i] !== 'u') {
+            newString += lowerString[i];
+        }
+    }
+    return newString;
+}
+
+// double odd numbers
+function doubleOddNumbers(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 == 1) {
+            newArray.push(array[i]);
+        }
+    }
+    const secondNewArray = [];
+    for (let i = 0; i < newArray.length; i++) {
+        secondNewArray.push(newArray[i] * 2);
+    }
+    return secondNewArray;
+}
