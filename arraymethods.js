@@ -2,47 +2,48 @@
 // double values
 function doubleValues(array) {
     const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        newArray.push(array[i] * 2);
-    }
+    array.forEach((el) => {
+        newArray.push(el * 2);
+    });
     return newArray;
 }
 
 // only even values
 function onlyEvenValues(array) {
     const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2 == 0) {
-            newArray.push(array[i]);
+    array.forEach((el) => {
+        if (el % 2 == 0) {
+            newArray.push(el)
         }
-    }
+    });
     return newArray;
 }
 
 // show first and last
 function showFirstAndLast(array) {
     const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        const newString = array[i].charAt(0) + array[i].charAt(array[i].length - 1);
+    array.forEach((el) => {
+        const newString = el[0] + el[el.length - 1];
         newArray.push(newString);
-    }
+    });
     return newArray;
 }
 
 // add key and value
 function addKeyAndValue(array, key, value) {
-    for (let i = 0; i < array.length; i++) {
-        array[i][key] = value;
-    }
+    array.forEach((el) => {
+        el[key] = value;
+    });
     return array;
 }
 
 // vowel count
 function vowelCount(string) {
+    const newArray = string.split('');
     const vowelObject = {};
-    const newString = string.toLowerCase();
-    for (let i = 0; i < newString.length; i++) {
-        switch (newString.charAt(i)) {
+    newArray.forEach((el) => {
+        let lowerCaseEl = el.toLowerCase();
+        switch (lowerCaseEl) {
             case 'a':
                 if (!vowelObject['a']) {
                     vowelObject['a'] = 1;
@@ -79,105 +80,90 @@ function vowelCount(string) {
                 }
                 break;
         }
-    }
-    return vowelObject;v
+    });
+    return vowelObject;
 }
 
 
 // map functions
 // double values with map
 function doubleValuesWithMap(array) {
-    const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        newArray.push(array[i] * 2);
-    }
-    return newArray;
+    return array.map((el) => {
+        return el * 2;
+    });
 }
 
 // val times index
 function valTimesIndex(array) {
-    const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        newArray.push(array[i] * i);
-    }
-    return newArray;
+    return array.map((el, i) => {
+        return el * i;
+    });
 }
 
 // extract key
 function extractKey(array, key) {
-    const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        const value = array[i][key];
-        newArray.push(value);
-    }
-    return newArray;
+    return array.map((el) => {
+        return el[key];
+    });
 }
 
 // extract full name
 function extractFullName(array) {
-    const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        const first = array[i]['first'];
-        const last = array[i]['last'];
-        newArray.push(`${first} ${last}`);
-    }
-    return newArray;
+    return array.map((el) => {
+        return `${el['first']} ${el['last']}`;
+    });
 }
 
 
 // filter functions
 // filter by value
 function filterByValue(array, key) {
-    const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i][key]) {
-            newArray.push(array[i]);
+    return array.filter((el) => {
+        if (el[key]) {
+            return el;
         }
-    }
-    return newArray;
+    });
 }
 
 // find
 function find(array, value) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] == value) {
-            return array[i];
+    return array.filter((el) => {
+        if (el == value) {
+            return el;
         }
-    }
+    })[0];
 }
 
 // find in object
 function findInObj(array, key, value) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i][key] == value) {
-            return array[i];
+    return array.filter((el) => {
+        if (el[key] == value) {
+            return el;
         }
-    }
+    })[0];
 }
 
 // remove vowels
 function removeVowels(string) {
-    const lowerString = string.toLowerCase();
-    let newString = '';
-    for (let i = 0; i < lowerString.length; i++) {
-        if (lowerString[i] !== 'a' && lowerString[i] !== 'e' && lowerString[i] !== 'i' && lowerString[i] !== 'o' && lowerString[i] !== 'u') {
-            newString += lowerString[i];
-        }
-    }
-    return newString;
-}
+    const vowels = 'aeiou';
+    return string
+      .toLowerCase()
+      .split('')
+      .filter((el) => {
+        return vowels.indexOf(el) === -1;
+      })
+      .join('');
+  }
 
 // double odd numbers
 function doubleOddNumbers(array) {
-    const newArray = [];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2 == 1) {
-            newArray.push(array[i]);
+    return array
+    .filter((el) => {
+        if (el % 2 == 1) {
+            return el;
         }
-    }
-    const secondNewArray = [];
-    for (let i = 0; i < newArray.length; i++) {
-        secondNewArray.push(newArray[i] * 2);
-    }
-    return secondNewArray;
+    })
+    .map((el) => {
+        return el * 2;
+    });
 }
